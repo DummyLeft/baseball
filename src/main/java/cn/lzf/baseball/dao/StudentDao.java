@@ -16,5 +16,5 @@ public class StudentDao {
     private String no;
     private String name;
     private Date birthdate;
-    private int Grade;
+    private int grade;
 }
