@@ -13,6 +13,8 @@ import java.util.Date;
 @Builder
 public class StudentDao {
     private int id;
+    private String no;
     private String name;
     private Date birthdate;
+    private int Grade;
 }
