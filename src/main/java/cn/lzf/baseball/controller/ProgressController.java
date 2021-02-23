@@ -25,6 +25,11 @@ public class ProgressController {
         return progressService.getProgressByDate(new Date(date));
     }
 
+    @GetMapping("/query_by_grade_and_subject")
+    public List<ProgressDao> queryByGradeAndSubject(@RequestParam int grade, @RequestParam String subject) {
+        return progressService.getProgressByGradeAndSubject(grade, subject);
+    }
+
     @GetMapping("/add")
     public int addProgress(@RequestParam int grade, @RequestParam String subject, @RequestParam String teacher,
                            @RequestParam long date, @RequestParam String progress) {

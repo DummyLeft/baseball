@@ -24,6 +24,11 @@ public class ProgressServiceImpl implements IProgressService {
     }
 
     @Override
+    public List<ProgressDao> getProgressByGradeAndSubject(int grade, String subject) {
+        return progressMapper.getProgressByGradeAndSubject(schoolYearMapper.getCurrentSchoolYear(), grade, subject);
+    }
+
+    @Override
     public int addProgress(int grade, String subject, Date date, String teacher, String progress) {
         ProgressDao progressDao = new ProgressDao();
         progressDao.setSchool_year(schoolYearMapper.getCurrentSchoolYear());

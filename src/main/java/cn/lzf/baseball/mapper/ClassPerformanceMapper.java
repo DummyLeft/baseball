@@ -14,7 +14,8 @@ public interface ClassPerformanceMapper {
     List<ClassPerformanceView> getClassPerformanceByDate(Date date);
 
     @Insert("INSERT INTO class_performance (school_year, student_id, date, teacher, score, comment) " +
-            "VALUES (#{school_year}, #{student_id}, #{date}, #{teacher}, #{score}, #{comment})")
+            "VALUES (#{school_year}, #{student_id}, #{date}, #{teacher}, #{score}, #{comment}) " +
+            "ON DUPLICATE KEY UPDATE teacher=#{teacher}, score=#{score}, comment=#{comment}")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void addProgress(ClassPerformanceDao classPerformance);
 
