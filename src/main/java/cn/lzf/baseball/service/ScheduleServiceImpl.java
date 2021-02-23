@@ -1,5 +1,6 @@
 package cn.lzf.baseball.service;
 
+import cn.lzf.baseball.dao.ScheduleDao;
 import cn.lzf.baseball.dao.TeacherDao;
 import cn.lzf.baseball.mapper.ScheduleMapper;
 import cn.lzf.baseball.vo.GradeScheduleView;
@@ -36,5 +37,16 @@ public class ScheduleServiceImpl implements IScheduleService {
             view.getSchedule().put(scheduleView.getDay_of_week(), teacher);
         });
         return new ArrayList<>(gradeScheduleViewMap.values());
+    }
+
+    @Override
+    public int addSchedule(int teacherId, int grade, int dayOfWeek, int classOfDay) {
+        ScheduleDao schedule = new ScheduleDao();
+        schedule.setTeacher_id(teacherId);
+        schedule.setGrade(grade);
+        schedule.setDay_of_week(dayOfWeek);
+        schedule.setClass_of_day(classOfDay);
+        scheduleMapper.addSchedule(schedule);
+        return schedule.getId();
     }
 }

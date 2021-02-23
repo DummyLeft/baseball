@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IScheduleService {
     List<GradeScheduleView> getAllGradeSchedules();
+    int addSchedule(int teacherId, int grade, int dayOfWeek, int classOfDay);
 }
